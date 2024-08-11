@@ -1,15 +1,17 @@
-Ethiolost and Found - Frontend
+Ethiolost and Found - Backend
 
-Ethiolost and Found is a dynamic web application designed to help users report and find lost and found items within Ethiopia. This repository contains the frontend code for the project, built with modern web technologies to provide an engaging and user-friendly interface.
+Ethiolost and Found is a web application aimed at helping users report and recover lost and found items within Ethiopia. This repository contains the backend code for the project, built with Django to handle data management, authentication, and API interactions.
 Features
 
-  User Registration and Authentication: Secure user sign-up and login functionality.
-  Item Listings: Users can browse and search for lost and found items.
-  Responsive Design: Optimized for various screen sizes and devices.
-  Interactive UI: Modern and intuitive user experience with real-time updates.
+    RESTful API: Provides endpoints for managing users, items, and reports.
+    User Authentication: Secure authentication using JWT (JSON Web Tokens).
+    Data Management: Handles CRUD operations for lost and found items.
+    Token Blacklisting: Ensures secure handling of JWTs with token blacklisting support.
+    Admin Interface: Django's built-in admin panel for managing application data.
 
 Technologies Used
 
-  React.js: For building the user interface and managing state.
-  Tailwind CSS: For styling and responsive design.
-  Axios: For making API requests to the backend.
+    Django: A high-level Python web framework for rapid development and clean design.
+    Django REST Framework: For building RESTful APIs.
+    Simple JWT: For handling JWT authentication.
+    SQLite:
