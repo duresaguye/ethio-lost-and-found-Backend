@@ -1,6 +1,6 @@
 # Environment variables
 .env
-
+venv
 # Python specific files
 __pycache__/
 *.pyc
