@@ -1,7 +1,0 @@
-curl -X GET http://127.0.0.1:8000/api/items/
--H "Content-Type: application/json" \
-{
-    "username": "testuser",
-    "email": "example@gmail.com",
-    "password": "password123",
-}

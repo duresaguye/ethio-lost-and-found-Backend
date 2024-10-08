@@ -1,13 +1,18 @@
-# settings.py
-from pathlib import Path
+from decouple import config
 import os
+import dj_database_url
+from pathlib import Path
 from datetime import timedelta
+from decouple import config
+
+
 
 from django.conf import settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-99y(7=vs5tel1q+*!o9zi$h8eu#p7-qesq%hikunl3075_frib'
+SECRET_KEY = config('SECRET_KEY') 
+
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -30,9 +35,12 @@ INSTALLED_APPS = [
 
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',  # React frontend
+    'http://localhost:3000',  
 ]
 CORS_ALLOW_ALL_ORIGINS = True
+ALLOWED_HOSTS = ['*']
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -62,6 +70,7 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'corsheaders.middleware.CorsMiddleware',  
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -91,11 +100,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ethiolostfound.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')
+    )
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -116,8 +125,10 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
