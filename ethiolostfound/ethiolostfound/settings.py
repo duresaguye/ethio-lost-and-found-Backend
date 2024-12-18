@@ -92,8 +92,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'https://748002336775-ueq7acrd8ujhrd44f2c53l11r4l2f8ci.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'https://748002336775-ueq7acrd8ujhrd44f2c53l11r4l2f8ci.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
 SOCIAL_AUTH_FACEBOOK_KEY = '<your-facebook-app-id>'
 SOCIAL_AUTH_FACEBOOK_SECRET = '<your-facebook-app-secret>'
