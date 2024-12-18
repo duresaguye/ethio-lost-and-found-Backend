@@ -7,6 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/items/', include('items.urls')),  # URL for items
     path('api/users/', include('users.urls')),  # users URLs 
+     path('auth/', include('social_django.urls', namespace='social')),
     
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # JWT token obtain pair URL
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # JWT token refresh URL
